@@ -2,7 +2,7 @@ import { Body, Controller, Post, UsePipes } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto, CreateUserSchema } from './dto/create-user.dto';
 import { ZodValidationPipe } from 'src/pipes/zod.validation/zod.validation.pipe';
-import { User } from 'generated/prisma/client';
+import { User } from '@prisma/client';
 
 @Controller('users')
 export class UserController {
