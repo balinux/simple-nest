@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UsePipes } from '@nestjs/common';
+import { Body, Controller, Get, Post, UsePipes } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto, CreateUserSchema } from './dto/create-user.dto';
 import { ZodValidationPipe } from 'src/pipes/zod.validation/zod.validation.pipe';
@@ -13,5 +13,9 @@ export class UserController {
   async createUser(@Body() userData: CreateUserDto): Promise<User> {
     const user = await this.userService.createUser(userData);
     return user;
+  }
+  @Get()
+  async getAllUsers() {
+    return await this.userService.getAllUsers();
   }
 }
